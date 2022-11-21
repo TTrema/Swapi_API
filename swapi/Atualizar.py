@@ -6,9 +6,13 @@ from rest_framework.response import Response
 from swapi.models import People, Planet
 
 
-def Atualiza_Peoples(url):
+def Atualiza_Peoples(url, dic):
     r = requests.get(url)
     info = r.json()
+    if dic == {}:
+        dic = info
+    else:
+        dic["results"].extend(info["results"])
 
     for element in info["results"]:
         if People.objects.filter(name=element["name"]).exists():
@@ -27,13 +31,20 @@ def Atualiza_Peoples(url):
             )
             a.save()
     if info.get("next"):
-        Atualiza_Peoples(info["next"])
+        Atualiza_Peoples(info["next"], dic)
+    return dic["results"]
 
 
-def Atualiza_Planets(url):
+def Atualiza_Planets(url, dic):
     r = requests.get(url)
     info = r.json()
+    if dic == {}:
+        dic = info
+    else:
+        dic["results"].extend(info["results"])
+
     for element in info["results"]:
+
         if Planet.objects.filter(name=element["name"]).exists():
             pass
         else:
@@ -51,4 +62,6 @@ def Atualiza_Planets(url):
             a.save()
 
     if info.get("next"):
-        Atualiza_Planets(info["next"])
+        Atualiza_Planets(info["next"], dic)
+
+    return dic["results"]

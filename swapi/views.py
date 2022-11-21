@@ -1,3 +1,5 @@
+import re
+
 import requests
 from django_filters.rest_framework import DjangoFilterBackend
 from requests.api import get
@@ -7,7 +9,6 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
-import re
 
 from swapi import Atualizar
 from swapi.models import People, Planet
@@ -25,10 +26,8 @@ class PlanetViewSet(generics.ListCreateAPIView):
         queryset = self.get_queryset()
         serializer = PlanetSerializer(queryset, many=True)
         try:
-            Atualizar.Atualiza_Planets("https://swapi.dev/api/planets/")
-            results = requests.get("https://swapi.dev/api/planets/")
-            results = results.json()
-            return Response(results)
+            data = Atualizar.Atualiza_Planets("https://swapi.dev/api/planets/", {})
+            return Response(data)
         except:
             return Response(serializer.data)
 
@@ -39,7 +38,7 @@ class SearchPlanet(APIView):
     def get(self, request, name, format=None):
 
         # Fetch SWAPI JSON data.
-        Atualizar.Atualiza_Planets("https://swapi.dev/api/planets/?search={}".format(name))
+        Atualizar.Atualiza_Planets("https://swapi.dev/api/planets/?search={}".format(name), {})
         # queryset = self.get_queryset()
         # serializer = PlanetSerializer(queryset, many=True)
         results = requests.get("https://swapi.dev/api/planets/?search={}".format(name))
@@ -51,7 +50,7 @@ class SearchPlanet(APIView):
 class SearchPeople(APIView):
     def get(self, request, name, format=None):
 
-        Atualizar.Atualiza_Peoples("https://swapi.dev/api/people/?search={}".format(name))
+        Atualizar.Atualiza_Peoples("https://swapi.dev/api/people/?search={}".format(name), {})
         results = requests.get("https://swapi.dev/api/people/?search={}".format(name))
         results = results.json()
         return Response(results)
@@ -67,10 +66,8 @@ class PeopleViewSet(generics.ListCreateAPIView):
         queryset = self.get_queryset()
         serializer = PeopleSerializer(queryset, many=True)
         try:
-            Atualizar.Atualiza_Peoples("https://swapi.dev/api/people/")
-            results = requests.get("https://swapi.dev/api/people/")
-            results = results.json()
-            return Response(results)
+            data = Atualizar.Atualiza_Peoples("https://swapi.dev/api/people/", {})
+            return Response(data)
         except:
             return Response(serializer.data)
 
