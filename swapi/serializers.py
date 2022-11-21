@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from swapi.models import Planet, People
+
+from swapi.models import People, Planet
 
 
 class PlanetSerializer(serializers.ModelSerializer):

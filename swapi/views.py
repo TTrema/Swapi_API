@@ -1,17 +1,16 @@
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, viewsets
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.views import APIView
-from requests.api import get
 import requests
-from rest_framework.reverse import reverse
+from django_filters.rest_framework import DjangoFilterBackend
+from requests.api import get
+from rest_framework import filters, generics, status, viewsets
+from rest_framework.decorators import action
 from rest_framework.generics import GenericAPIView
+from rest_framework.response import Response
+from rest_framework.reverse import reverse
+from rest_framework.views import APIView
+
 from swapi import Atualizar
 from swapi.models import People, Planet
 from swapi.serializers import PeopleSerializer, PlanetSerializer
-from rest_framework import generics
 
 
 class PlanetViewSet(generics.ListCreateAPIView):
@@ -21,6 +20,7 @@ class PlanetViewSet(generics.ListCreateAPIView):
     serializer_class = PlanetSerializer
 
     def get(self, request):
+
         Atualizar.Atualiza_Planets("https://swapi.dev/api/planets/")
         queryset = self.get_queryset()
         serializer = PlanetSerializer(queryset, many=True)
