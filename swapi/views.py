@@ -7,6 +7,7 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
+import re
 
 from swapi import Atualizar
 from swapi.models import People, Planet
@@ -21,10 +22,10 @@ class PlanetViewSet(generics.ListCreateAPIView):
 
     def get(self, request):
 
-        Atualizar.Atualiza_Planets("https://swapi.dev/api/planets/")
         queryset = self.get_queryset()
         serializer = PlanetSerializer(queryset, many=True)
         try:
+            Atualizar.Atualiza_Planets("https://swapi.dev/api/planets/")
             results = requests.get("https://swapi.dev/api/planets/")
             results = results.json()
             return Response(results)
@@ -63,10 +64,10 @@ class PeopleViewSet(generics.ListCreateAPIView):
     serializer_class = PeopleSerializer
 
     def get(self, request):
-        Atualizar.Atualiza_Peoples("https://swapi.dev/api/people/")
         queryset = self.get_queryset()
         serializer = PeopleSerializer(queryset, many=True)
         try:
+            Atualizar.Atualiza_Peoples("https://swapi.dev/api/people/")
             results = requests.get("https://swapi.dev/api/people/")
             results = results.json()
             return Response(results)
