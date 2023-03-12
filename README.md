@@ -1,5 +1,6 @@
 # Star War API
 
+
 Uma API feita com Django Rest Framework que puxa os dados do https://swapi.dev
 
 
@@ -11,7 +12,7 @@ Uma API feita com Django Rest Framework que puxa os dados do https://swapi.dev
 <li>Pessoas</li>
 </ul>
 
-## Descrição:
+## Descrição
 
 -Ao acessar um dos links ele vai puxar todo o banco de dados do swapi do tema referente e adicionar ao banco de dados o que já não estiver
 Depois vai exibir o conteudo do swapi, caso a conexão não seja estabelecida, ira mostar o que tem no banco de dados local
@@ -19,14 +20,27 @@ Depois vai exibir o conteudo do swapi, caso a conexão não seja estabelecida, i
 -É possivel procurar usando /search/"nome", exemplo:(/planets/search/Malastare/)
 Ira exibir a pesquisa equivalente no swapi e salvar no banco de dados local tudo que não tiver.
 
-## Pré-requisitos:
+## Pré-requisitos
    <ul>
+   <li>Docker</li>
    <li>Python</li>
    </ul>
 
-## Instruções de uso:
+## Instruções de uso
 
-## Crie e ative um virtual environment:
+### Baixe e execute o projeto com o comando:
+
+    docker run -p 8000:8000 ttrema/swapiapidb
+   
+### Depois acesse no:
+
+    http://localhost:8000/
+
+## Outra opção:
+
+ - Caso não queira usar o docker, use o metodo abaixo:
+
+### Crie e ative um virtual environment:
 
     Windows:
         Crie a venv usando o comando python -m venv nome_da_venv (exemplo: python -m venv venv).
