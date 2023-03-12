@@ -20,23 +20,21 @@ Depois vai exibir o conteudo do swapi, caso a conexão não seja estabelecida, i
 Ira exibir a pesquisa equivalente no swapi e salvar no banco de dados local tudo que não tiver.
 
 
-
 ## Instruções de uso:
 
 ## Crie e ative um virtual environment:
 
-        Windows:
-            Crie a venv usando o comando python -m venv nome_da_venv (exemplo: python -m venv venv).
-            Ative a venv usando o comando .\nome_da_venv\Scripts\activate (exemplo: .\venv\Scripts\activate).
+    Windows:
+        Crie a venv usando o comando python -m venv nome_da_venv (exemplo: python -m venv venv).
+        Ative a venv usando o comando .\nome_da_venv\Scripts\activate (exemplo: .\venv\Scripts\activate).
 
-        Linux e macOS:
-            Crie a venv usando o comando python3 -m venv nome_da_venv (exemplo: python3 -m venv venv).
-            Ative a venv usando o comando source nome_da_venv/bin/activate (exemplo: source venv/bin/activate).
+    Linux e macOS:
+        Crie a venv usando o comando python3 -m venv nome_da_venv (exemplo: python3 -m venv venv).
+        Ative a venv usando o comando source nome_da_venv/bin/activate (exemplo: source venv/bin/activate).
 
 ### Use o comando:
 
     pip install -r requirements.txt
-
 
 ### Use o comando:
 
