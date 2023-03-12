@@ -1,7 +1,7 @@
 # Star War API
 
 
-Uma API feita com Django Rest Framework que puxa os dados do https://swapi.dev
+Uma API feita com Django Rest Framework que puxa dados do https://swapi.dev
 
 
 ## Atualmente contém os dados de:
@@ -15,10 +15,10 @@ Uma API feita com Django Rest Framework que puxa os dados do https://swapi.dev
 ## Descrição
 
 -Ao acessar um dos links ele vai puxar todo o banco de dados do swapi do tema referente e adicionar ao banco de dados o que já não estiver
-Depois vai exibir o conteudo do swapi, caso a conexão não seja estabelecida, ira mostar o que tem no banco de dados local
+Depois vai exibir o conteudo do swapi, caso a conexão não seja estabelecida, irá mostrar o que tem no banco de dados local
 
 -É possivel procurar usando /search/"nome", exemplo:(/planets/search/Malastare/)
-Ira exibir a pesquisa equivalente no swapi e salvar no banco de dados local tudo que não tiver.
+irá exibir os resultados da pesquisa equivalente no swapi e salvar no banco de dados local os dados ainda não salvos.
 
 ## Pré-requisitos
    <ul>
@@ -28,7 +28,7 @@ Ira exibir a pesquisa equivalente no swapi e salvar no banco de dados local tudo
 
 ## Instruções de uso
 
-### Baixe e execute o projeto com o comando:
+### baixe e execute o projeto utilizando o comando:
 
     docker run -p 8000:8000 ttrema/swapiapidb
    
