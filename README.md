@@ -19,6 +19,10 @@ Depois vai exibir o conteudo do swapi, caso a conexão não seja estabelecida, i
 -É possivel procurar usando /search/"nome", exemplo:(/planets/search/Malastare/)
 Ira exibir a pesquisa equivalente no swapi e salvar no banco de dados local tudo que não tiver.
 
+## Pré-requisitos:
+   <ul>
+   <li>Python</li>
+   </ul>
 
 ## Instruções de uso:
 
